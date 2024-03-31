@@ -81,7 +81,7 @@ namespace randomx {
 		void enableWriting() const;
 		void enableExecution() const;
 
-		alignas(64) static InstructionGeneratorX86 engine[256];
+		alignas(64) static InstructionGeneratorX86 engine[257];
 
 	private:
 		int registerUsage[RegistersCount] = {};
@@ -89,7 +89,8 @@ namespace randomx {
 		uint32_t codePos = 0;
 		uint32_t codePosFirst = 0;
 		uint32_t vm_flags = 0;
-		uint32_t prevCFROUND = 0;
+		int32_t prevCFROUND = -1;
+		int32_t prevFPOperation = -1;
 
 #		ifdef XMRIG_FIX_RYZEN
 		std::pair<const void*, const void*> mainLoopBounds;

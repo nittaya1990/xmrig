@@ -50,6 +50,7 @@ static const option options[] = {
     { "http-no-restricted",    0, nullptr, IConfig::HttpRestrictedKey     },
     { "daemon",                0, nullptr, IConfig::DaemonKey             },
     { "daemon-poll-interval",  1, nullptr, IConfig::DaemonPollKey         },
+    { "daemon-job-timeout",    1, nullptr, IConfig::DaemonJobTimeoutKey   },
     { "self-select",           1, nullptr, IConfig::SelfSelectKey         },
     { "submit-to-origin",      0, nullptr, IConfig::SubmitToOriginKey     },
     { "daemon-zmq-port",       1, nullptr, IConfig::DaemonZMQPortKey      },
@@ -71,6 +72,7 @@ static const option options[] = {
     { "hugepage-size",         1, nullptr, IConfig::HugePageSizeKey       },
     { "huge-pages-jit",        0, nullptr, IConfig::HugePagesJitKey       },
     { "hugepages-jit",         0, nullptr, IConfig::HugePagesJitKey       },
+    { "rotation",              1, nullptr, IConfig::RotationKey           },
     { "pass",                  1, nullptr, IConfig::PasswordKey           },
     { "print-time",            1, nullptr, IConfig::PrintTimeKey          },
     { "retries",               1, nullptr, IConfig::RetriesKey            },
@@ -139,10 +141,6 @@ static const option options[] = {
     { "randomx-cache-qos",     0, nullptr, IConfig::RandomXCacheQoSKey    },
     { "cache-qos",             0, nullptr, IConfig::RandomXCacheQoSKey    },
 #   endif
-    #ifdef XMRIG_ALGO_ASTROBWT
-    { "astrobwt-max-size",     1, nullptr, IConfig::AstroBWTMaxSizeKey    },
-    { "astrobwt-avx2",         0, nullptr, IConfig::AstroBWTAVX2Key       },
-    #endif
 #   ifdef XMRIG_FEATURE_OPENCL
     { "opencl",                0, nullptr, IConfig::OclKey                },
     { "opencl-devices",        1, nullptr, IConfig::OclDevicesKey         },
